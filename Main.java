@@ -1,10 +1,13 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main
 {
     public static void main(String[] args)
     {
-        System.out.println(addBigInts(new ArrayList<Integer>(Arrays.asList(1, 2, 3)), new ArrayList<Integer>(Arrays.asList(1, 2))));
+        System.out.println("Sieve of Eratosthenes: " + getPrimes(100));
+        System.out.println("Goldbach Conjecture: " + getPrimeAddends(100));
+        System.out.println("Adding BigInts: " + add(new ArrayList<Integer>(Arrays.asList(5, 5, 5)), new ArrayList<Integer>(Arrays.asList(5, 5, 5))));
     }
     
     public static ArrayList<Integer> getPrimes(int n)
@@ -41,7 +44,7 @@ public class Main
         return addends;
     }
     
-    public static ArrayList<Integer> addBigInts(ArrayList<Integer> a, ArrayList<Integer> b)
+    public static ArrayList<Integer> add(ArrayList<Integer> a, ArrayList<Integer> b)
     {
         ArrayList<Integer> sum = new ArrayList<>();
         
@@ -52,12 +55,26 @@ public class Main
             b = tmp;
         }
         
+        int carry = 0;
+        
         for(int i = 0; i < a.size(); i++)
         {
-            if(i < b.size()) sum.add(0, a.get(a.size() - 1 - i) + b.get(b.size() - 1 - i));
-            else sum.add(0, a.get(a.size() - 1 - i));
+            int aD = a.get(a.size() - 1 - i);
+
+            if(i < b.size())
+            {
+                int bD = b.get(b.size() - 1 - i);
+                sum.add(0, (aD + bD + carry) % 10);
+                carry = (aD + bD) / 10;
+            }
+            else
+            {
+                if(i == b.size() + 1) carry = 0;
+                sum.add(0, aD + carry);
+            }
         }
         
+        if(carry == 1) sum.add(0, 1);
         return sum;
     }
 }

@@ -7,5 +7,5 @@ comment2.target=java.util.ArrayList\ getPrimes(int)
 comment3.params=n
 comment3.target=java.util.ArrayList\ getPrimeAddends(int)
 comment4.params=a\ b
-comment4.target=java.util.ArrayList\ addBigInts(java.util.ArrayList,\ java.util.ArrayList)
+comment4.target=java.util.ArrayList\ add(java.util.ArrayList,\ java.util.ArrayList)
 numComments=5
