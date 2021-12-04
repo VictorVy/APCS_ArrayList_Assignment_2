@@ -7,7 +7,7 @@ public class Main
     {
         System.out.println("Sieve of Eratosthenes: " + getPrimes(100));
         System.out.println("Goldbach Conjecture: " + getPrimeAddends(100));
-        System.out.println("Adding BigInts: " + add(new ArrayList<Integer>(Arrays.asList(5, 5, 5)), new ArrayList<Integer>(Arrays.asList(5, 5, 5))));
+        System.out.println("Adding BigInts: " + add(new ArrayList<>(Arrays.asList(5, 5, 5)), new ArrayList<>(Arrays.asList(5, 5, 5))));
     }
     
     public static ArrayList<Integer> getPrimes(int n)
